@@ -3,7 +3,7 @@
 $PluginInfo['MyGroups'] = array(
     'Name' => 'My Groups' , 
     'Description' => 'Sets up private groups with ownership, applicants and members' , 
-    'RequiredApplications' => array('Vanilla' => '2.1'), 
+    'RequiredApplications' => array('Vanilla' => '2.2'), 
     'SettingsPermission' => 'Garden.Settings.Manage', 
     'RegisterPermissions' => array('Plugins.MyGroups.Manage'),
     'MobileFriendly' => true,

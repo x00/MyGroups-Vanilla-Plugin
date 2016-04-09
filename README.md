@@ -6,8 +6,8 @@ Sets up private groups with ownership, applicants and members
 ### Sponsor ###
 Special thanks to forumias.com for making this happen.
 
-### Logo ###
-Thank you to phreak for such a great design!
+### Icon ###
+Logo by VanillaSkins.com
 
 ### Tested on ###
 2.2
