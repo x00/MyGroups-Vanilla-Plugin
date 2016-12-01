@@ -1,4 +1,4 @@
-# Verified Plus #
+# My Groups #
 
 ### About ###
 Sets up private groups with ownership, applicants and members

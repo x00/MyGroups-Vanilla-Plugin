@@ -151,7 +151,7 @@ class MyGroupsSettings {
     
     public function settingsController_edit($sender) {
         $groupID = val(1, $sender->RequestArgs);
-        if ($groupID && ctype_digit($groupID)) {
+        if ($groupID && ctype_digit((string) $groupID)) {
             $group = $this->myGroupsModel->getGroup($groupID);
             $redirect = 'settings/mygroups';
             $force = array();
@@ -176,7 +176,7 @@ class MyGroupsSettings {
     
     public function settingsController_delete($sender) {
         $groupID = val(1, $sender->RequestArgs);
-        if ($groupID && ctype_digit($groupID)) {
+        if ($groupID && ctype_digit((string) $groupID)) {
             $group = $this->myGroupsModel->getGroup($groupID);
             $redirect = 'settings/mygroups';
             $force = array();
@@ -196,7 +196,7 @@ class MyGroupsSettings {
     
     public function settingsController_approve($sender) {
         $groupID = val(1, $sender->RequestArgs);
-        if ($groupID && ctype_digit($groupID)) {
+        if ($groupID && ctype_digit((string) $groupID)) {
             $group = $this->myGroupsModel->getRequestGroup($groupID);
             if ($group) {
                 $this->myGroupsModel->approveGroup($groupID);

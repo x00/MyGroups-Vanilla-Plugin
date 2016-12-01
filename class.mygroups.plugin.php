@@ -8,7 +8,7 @@ $PluginInfo['MyGroups'] = array(
     'RegisterPermissions' => array('Plugins.MyGroups.Manage'),
     'MobileFriendly' => true,
     'SettingsUrl' => '/settings/mygroups',
-    'Version' => '0.1.18b' , 
+    'Version' => '0.2.0b' , 
     'Author' => "Paul Thomas" , 
     'AuthorEmail' => 'dt01pqt_pt@yahoo.com'
 );

@@ -155,7 +155,7 @@ class MyGroupsUI {
     public function groupsController_request($sender) {
         if (Gdn::session()->isValid()) {
             $groupID = val(1, $sender->RequestArgs);
-            if ($groupID && ctype_digit($groupID)) {
+            if ($groupID && ctype_digit((string) $groupID)) {
                 $group = $this->myGroupsModel->getRequestGroup($groupID);
                 if ($group && $group->Request && $this->myGroupsModel->isOwner(Gdn::session()->User->UserID, $groupID)) {
                     $sender->setData('group', $group);

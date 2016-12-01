@@ -48,7 +48,7 @@ class MyGroupsModel extends VanillaModel {
                 );    
         }
         
-        $groupID = isset($formValues['MyGroupID']) && $formValues['MyGroupID'] ? $formValues['MyGroupID'] : $this->SQL->Database->connection()->lastInsertId();
+        $groupID = isset($fields['MyGroupID']) && $fields['MyGroupID'] ? $fields['MyGroupID'] : $this->SQL->Database->connection()->lastInsertId();
         
         $this->getGroupsCount(true);
         $this->getGroupRequestsCount(true);
@@ -57,7 +57,7 @@ class MyGroupsModel extends VanillaModel {
     }
     
     public function approveGroup($groupID) {
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return;
         }
         
@@ -89,10 +89,10 @@ class MyGroupsModel extends VanillaModel {
     
     public function saveGroupMember($userID, $groupID, $fields) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return;
         }
-        
+
         $isApplicant = $this->getGroupApplicant($userID, $groupID);
         $isMember = $this->getGroupMember($userID, $groupID);
 
@@ -141,7 +141,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function getGroup($groupID) {
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return null;
         }
         
@@ -156,7 +156,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function getRequestGroup($groupID) {
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return null;
         }
         
@@ -302,7 +302,7 @@ class MyGroupsModel extends VanillaModel {
             self::$groups = array();
         }
         
-        if (ctype_digit($where)) {
+        if (ctype_digit((string) $where)) {
             if (isset(self::$groups[$where])) {
                 return array(self::$groups[$where]);
             } else {
@@ -341,7 +341,7 @@ class MyGroupsModel extends VanillaModel {
     
         $limit = $limit ? $limit : c('Plugins.MyGroups.PageLimit', 30);
         
-        if (ctype_digit($where)) {
+        if (ctype_digit((string) $where)) {
             if (isset(self::$groups[$where])) {
                 return array(self::$groups[$where]);
             } else {
@@ -427,7 +427,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function getGroupMember($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return null;
         }
         
@@ -458,7 +458,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function isOwner($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return false;
         }
         
@@ -476,7 +476,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function isMember($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return false;
         }
         
@@ -494,7 +494,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function isApplicant($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return false;
         }
         
@@ -504,7 +504,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function getGroupApplicant($userID, $groupID) {
     
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return null;
         }
         
@@ -538,7 +538,7 @@ class MyGroupsModel extends VanillaModel {
         
         $limit = $limit ? $limit : c('Plugins.MyGroups.PageLimit', 30);
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return array();
         }
         
@@ -591,7 +591,7 @@ class MyGroupsModel extends VanillaModel {
         
         $limit = $limit ? $limit : c('Plugins.MyGroups.PageLimit', 30);
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return array();
         }
         
@@ -639,7 +639,7 @@ class MyGroupsModel extends VanillaModel {
         
         $limit = $limit ? $limit : c('Plugins.MyGroups.PageLimit', 30);
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return array();
         }
         
@@ -688,7 +688,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function deleteGroup($groupID) {
         
-        if (!ctype_digit($groupID)) {
+        if (!ctype_digit((string) $groupID)) {
             return;
         }
         
@@ -705,7 +705,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function deleteGroupMember($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return;
         }
         
@@ -724,7 +724,7 @@ class MyGroupsModel extends VanillaModel {
     
     public function deleteGroupApplicant($userID, $groupID) {
         
-        if (!ctype_digit($userID) ||  !ctype_digit($groupID)) {
+        if (!ctype_digit((string) $userID) ||  !ctype_digit((string) $groupID)) {
             return;
         }
         

@@ -302,7 +302,6 @@ class MyGroupsAPI {
                     $sender->Form->addError(t('Group could not be saved name may aready taken'));
                     return;
                 }
-                
                 if ($groupID) {
                     $myGroupsModel->saveGroupMember(Gdn::session()->User->UserID, $groupID, array('Owner' => true));
                 }
